@@ -5,6 +5,7 @@ import { ClerkProvider, UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { LogIn } from "lucide-react";
+import FileUpload from "../components/FileUplaod";
 
 export default async function Home() {
   const { userId } = await auth();
@@ -19,7 +20,7 @@ export default async function Home() {
               <UserButton />
             </ClerkProvider>
           </div>
-          <div className="flex mt2">
+          <div className="flex mt-2">
             {isAuth && <Button>Go to Chats</Button>}
           </div>
 
@@ -29,7 +30,7 @@ export default async function Home() {
           </p>
           <div className="w-full mt-4">
             {isAuth ? (
-              <h1>fileupload</h1>
+              <FileUpload />
             ) : (
               <Link href="/sign-in">
                 <Button>
